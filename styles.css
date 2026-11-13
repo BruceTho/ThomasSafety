@@ -1,0 +1,195 @@
+:root {
+  --bg: #000000;
+  --blue: #4c7db8;
+  --red: #d52a2a;
+  --green: #4a9a4a;
+  --text: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.page {
+  width: min(1200px, 100%);
+}
+
+.diagram {
+  position: relative;
+  width: min(900px, 100%);
+  height: 650px;
+  margin: 0 auto 42px;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.orb-intersections {
+  top: 0;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translateX(-50%);
+  background: rgba(62, 94, 143, 0.9);
+  font-size: clamp(2rem, 2vw, 3rem);
+}
+
+.orb-distractions {
+  left: 10%;
+  top: 46%;
+  width: 260px;
+  height: 260px;
+  background: rgba(100, 136, 186, 0.92);
+  font-size: clamp(1.8rem, 2vw, 2.8rem);
+}
+
+.orb-reverse {
+  right: 10%;
+  top: 46%;
+  width: 260px;
+  height: 260px;
+  background: rgba(214, 38, 38, 0.93);
+  font-size: clamp(2rem, 2vw, 3rem);
+}
+
+.orb-space {
+  left: 50%;
+  bottom: 0;
+  width: 260px;
+  height: 260px;
+  transform: translateX(-50%);
+  background: rgba(67, 152, 84, 0.9);
+  font-size: clamp(2rem, 2vw, 3rem);
+}
+
+.tsi {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  font-size: clamp(4rem, 6vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.content > p {
+  max-width: 860px;
+  margin: 0 auto 30px;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 22px 18px;
+  text-align: left;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  color: #ffffff;
+}
+
+.card p {
+  margin: 0;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 880px) {
+  .diagram {
+    height: 540px;
+    margin-bottom: 24px;
+  }
+
+  .orb-intersections,
+  .orb-distractions,
+  .orb-reverse,
+  .orb-space {
+    width: 210px;
+    height: 210px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .diagram {
+    height: 420px;
+  }
+
+  .orb-intersections,
+  .orb-distractions,
+  .orb-reverse,
+  .orb-space {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
