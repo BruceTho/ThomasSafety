@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f1">
+  <meta name="description" content="Thomas Safety Institute, LLC coaches drivers to create space, limit backing, approach intersections thoughtfully, and reduce distractions.">
+  <title>Thomas Safety Institute, LLC | Safer choices, mile after mile</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182b26;
+      --muted: #64716b;
+      --green: #21483d;
+      --green-dark: #18372f;
+      --lime: #d7ed88;
+      --paper: #f7f6f1;
+      --white: #fffefa;
+      --line: #e6e5dc;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1160px, calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      height: 88px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(24, 43, 38, .08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--green);
+      color: var(--lime);
+    }
+
+    .brand-name {
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: .035em;
+      line-height: 1.25;
+    }
+
+    .brand-name span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      color: #485851;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 19px;
+      border: 0;
+      border-radius: 7px;
+      background: var(--green);
+      color: white;
+      font: 650 13px var(--sans);
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .nav-cta:hover, .button:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.04fr;
+      align-items: center;
+      gap: 52px;
+      padding-block: 74px 82px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 23px;
+      height: 2px;
+      background: #8cae56;
+      content: "";
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 540px;
+      margin: 22px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(47px, 5.2vw, 69px);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: 1.04;
+    }
+
+    h1 em {
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    .hero-copy {
+      max-width: 475px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .text-link:hover { color: var(--green); }
+
+    .hero-art {
+      position: relative;
+      min-height: 415px;
+      overflow: hidden;
+      border-radius: 13px;
+      background: #e6ead9;
+    }
+
+    .hero-art > svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .art-note {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 310px;
+      padding: 15px 17px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 9px;
+      background: rgba(255, 254, 250, .94);
+      box-shadow: 0 8px 26px rgba(27, 51, 42, .12);
+    }
+
+    .note-icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: #eaf1d9;
+      color: var(--green);
+    }
+
+    .art-note strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .art-note span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .intro-strip {
+      border-block: 1px solid var(--line);
+      background: rgba(255, 254, 250, .62);
+    }
+
+    .intro-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding-block: 27px;
+    }
+
+    .intro-inner p {
+      max-width: 710px;
+      margin: 0;
+      color: #53625b;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .intro-tag {
+      flex: 0 0 auto;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .coaching {
+      padding-block: 93px 96px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 38px;
+    }
+
+    h2 {
+      max-width: 550px;
+      margin: 15px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 49px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.12;
+    }
+
+    .section-heading > p {
+      max-width: 340px;
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .coaching-card {
+      min-height: 245px;
+      padding: 23px 21px 22px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--white);
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .coaching-card:hover {
+      transform: translateY(-3px);
+      border-color: #b7c5a5;
+      box-shadow: 0 12px 30px rgba(37, 57, 48, .07);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 27px;
+    }
+
+    .card-icon {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      border-radius: 11px;
+      background: #edf2e2;
+      color: var(--green);
+    }
+
+    .card-number {
+      color: #98a39b;
+      font-family: var(--serif);
+      font-size: 15px;
+    }
+
+    .coaching-card h3 {
+      margin-bottom: 9px;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+
+    .coaching-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .approach {
+      padding-block: 68px;
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .approach-inner {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 90px;
+    }
+
+    .approach .eyebrow { color: var(--lime); }
+    .approach h2 { max-width: 430px; margin-bottom: 16px; }
+
+    .approach-copy {
+      max-width: 415px;
+      margin: 0;
+      color: #d2ded7;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .principles li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #eaf0eb;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .check {
+      display: grid;
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(215, 237, 136, .14);
+      color: var(--lime);
+    }
+
+    .closing {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding-block: 65px;
+    }
+
+    .closing h2 {
+      max-width: 560px;
+      margin-top: 0;
+      font-size: clamp(33px, 4vw, 44px);
+    }
+
+    .closing p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 75px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-brand {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    :focus-visible {
+      outline: 3px solid #8cae56;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; gap: 30px; }
+      .hero-art { min-height: 400px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-inner { gap: 42px; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 40px, 480px); }
+      .topbar { height: 72px; }
+      .nav-links { display: none; }
+      .nav-cta { min-height: 40px; padding-inline: 13px; font-size: 11px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-block: 57px 58px;
+      }
+      h1 { max-width: 480px; font-size: clamp(48px, 13vw, 64px); }
+      .hero-copy { font-size: 15px; }
+      .hero-art { min-height: 320px; }
+      .intro-inner { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .coaching { padding-block: 68px; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+      .section-heading > p { max-width: 450px; }
+      .card-grid { gap: 10px; }
+      .coaching-card { min-height: 238px; padding: 18px 15px; }
+      .card-top { margin-bottom: 23px; }
+      .coaching-card h3 { font-size: 20px; }
+      .approach { padding-block: 57px; }
+      .approach-inner { grid-template-columns: 1fr; gap: 30px; }
+      .principles { gap: 18px 14px; }
+      .principles li { font-size: 12px; }
+      .closing { align-items: flex-start; flex-direction: column; padding-block: 53px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; gap: 7px; padding-block: 17px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="Thomas Safety Institute home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+            <path d="M12.5 2.5 21 6v5.7c0 5.2-3.5 8.8-8.5 10.8C7.5 20.5 4 16.9 4 11.7V6l8.5-3.5Z" stroke="currentColor" stroke-width="1.7"/>
+            <path d="m8.6 12.4 2.4 2.4 5.5-5.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">THOMAS SAFETY<span>Institute, LLC</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#coaching">Our focus</a>
+        <a href="#approach">Our approach</a>
+      </div>
+      <a class="nav-cta" href="#coaching">Explore coaching <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">Practical driver coaching</span>
+        <h1 id="hero-title">A little more space. <em>A lot more safety.</em></h1>
+        <p class="hero-copy">Good driving is built on everyday choices. We coach drivers to recognize risk sooner, make room for the unexpected, and arrive with confidence.</p>
+        <div class="hero-actions">
+          <a class="button" href="#coaching">See what we coach <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#approach">Our approach <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-art" role="img" aria-label="Illustration of a clear road winding through green hills toward the horizon">
+        <svg viewBox="0 0 620 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="sky" x1="310" y1="0" x2="310" y2="460" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#dce8ca"/>
+              <stop offset="1" stop-color="#f0ead4"/>
+            </linearGradient>
+            <linearGradient id="road" x1="310" y1="195" x2="310" y2="460" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#647b6c"/>
+              <stop offset="1" stop-color="#344b42"/>
+            </linearGradient>
+          </defs>
+          <rect width="620" height="460" fill="url(#sky)"/>
+          <circle cx="460" cy="111" r="44" fill="#f3c878" opacity=".92"/>
+          <path d="M0 235c76-32 121-66 195-47 55 14 99 58 157 45 68-15 119-68 268-19v116H0V235Z" fill="#a5b99b"/>
+          <path d="M0 275c83-25 150-37 223-16 67 19 98 43 170 25 76-19 141-39 227-15v110H0V275Z" fill="#718f78"/>
+          <path d="M0 333c117-27 192-6 267 9 104 22 225-19 353-4v122H0V333Z" fill="#526f5e"/>
+          <path d="M257 226h106l200 234H57l200-234Z" fill="url(#road)"/>
+          <path d="m302 226 13 0 13 63h-37l11-63Zm-18 91h51l14 66h-79l14-66Zm-23 101h97l13 42H248l13-42Z" fill="#f2e5ad" opacity=".92"/>
+          <path d="M0 365c63-29 117-30 177-12l-64 107H0V365Z" fill="#405e4e"/>
+          <path d="M620 353c-66-25-123-22-179-4l65 111h114V353Z" fill="#405e4e"/>
+          <g fill="#355646">
+            <path d="m66 251 28-68 28 68H66Zm9 28h39v44H75v-44Zm-31 16 24-58 24 58H44Zm500-42 27-66 27 66h-54Zm7 28h39v43h-39v-43Zm-32 12 23-56 24 56h-47Z"/>
+            <path d="m149 286 21-51 21 51h-42Zm5 22h32v39h-32v-39Zm308-16 24-59 24 59h-48Zm6 22h36v41h-36v-41Z"/>
+          </g>
+          <g fill="#d4e3bf" opacity=".8">
+            <circle cx="177" cy="194" r="3"/><circle cx="206" cy="172" r="2"/>
+            <circle cx="388" cy="187" r="3"/><circle cx="413" cy="204" r="2"/>
+            <circle cx="132" cy="226" r="2"/><circle cx="493" cy="224" r="2"/>
+          </g>
+        </svg>
+        <div class="art-note">
+          <span class="note-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2.5v3m0 9v3M2.5 10h3m9 0h3M4.7 4.7l2.1 2.1m6.4 6.4 2.1 2.1m0-10.6-2.1 2.1m-6.4 6.4-2.1 2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="10" cy="10" r="3.1" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+          <span><strong>Safer choices, mile after mile</strong>Build awareness. Make room. Stay focused.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-strip" aria-label="Our mission">
+      <div class="intro-inner wrap">
+        <span class="intro-tag">Safety is a practice</span>
+        <p>Thomas Safety Institute, LLC helps drivers turn sound safety principles into habits they can use on every trip—from the driveway to the busiest intersection.</p>
+      </div>
+    </section>
+
+    <section class="coaching wrap" id="coaching" aria-labelledby="coaching-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Four habits that matter</span>
+          <h2 id="coaching-title">Coach the choices.<br>Change the drive.</h2>
+        </div>
+        <p>Practical guidance helps drivers see what’s developing around them and choose a safer next move.</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="coaching-card">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </span>
+            <span class="card-number">01</span>
+          </div>
+          <h3>Create space</h3>
+          <p>Keep a safe following distance, allow room beside your vehicle, and leave yourself options when conditions change.</p>
+        </article>
+
+        <article class="coaching-card">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M5 18V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10M8 6V4m8 2V4M3 18h18M8 14l2-2m6 2-2-2M12 12v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="card-number">02</span>
+          </div>
+          <h3>Limit reversing</h3>
+          <p>Plan ahead, choose a forward exit when possible, and use a deliberate, observant routine whenever backing is needed.</p>
+        </article>
+
+        <article class="coaching-card">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21V4m0 8H5m7-3h7M5 12l3-3m-3 3 3 3m11-6-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="4" r="1.6" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </span>
+            <span class="card-number">03</span>
+          </div>
+          <h3>Approach intersections</h3>
+          <p>Ease off early, scan in every direction, and be ready for people or vehicles that may enter your path.</p>
+        </article>
+
+        <article class="coaching-card">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M5 5h14v11H5zM9 20h6m-3-4v4M3 3l18 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="card-number">04</span>
+          </div>
+          <h3>Limit distractions</h3>
+          <p>Set up before moving, keep attention on the road, and make focused driving the priority for every trip.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="approach-inner wrap">
+        <div>
+          <span class="eyebrow">Awareness into action</span>
+          <h2 id="approach-title">Make the safer choice your usual choice.</h2>
+          <p class="approach-copy">Our coaching centers on practical decisions drivers can carry into real-world situations. Small, consistent habits can make a meaningful difference behind the wheel.</p>
+        </div>
+        <ul class="principles">
+          <li><span class="check" aria-hidden="true">✓</span><span>Look ahead and recognize changing conditions.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Slow down and give yourself time to respond.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Choose a clear plan before a maneuver.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Stay attentive from start to finish.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="closing wrap" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Every trip is a chance to drive with care.</h2>
+        <p>Start with awareness. Leave room for what’s next.</p>
+      </div>
+      <a class="button" href="#coaching">Explore the four habits <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner wrap">
+      <span class="footer-brand">Thomas Safety Institute, LLC</span>
+      <span>Practical coaching for safer driving.</span>
+      <span>&copy; <span id="year">2026</span> Thomas Safety Institute, LLC</span>
+    </div>
+  </footer>
+</body>
+</html>
